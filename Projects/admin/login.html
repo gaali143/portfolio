@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Admin Login</title>
+  <link rel="stylesheet" href="admin.css"/>
+</head>
+<body class="bg">
+  <div class="auth-wrap">
+    <div class="auth-card">
+      <div class="auth-title">SAAS :: ADMIN ACCESS</div>
+      <div class="auth-sub">authorized personnel only</div>
+
+      <form id="loginForm" class="auth-form">
+        <label>Username</label>
+        <input id="u" autocomplete="username" placeholder="admin" />
+        <label>Password</label>
+        <input id="p" type="password" autocomplete="current-password" placeholder="••••••••" />
+        <button class="btn" type="submit">LOGIN</button>
+        <div id="msg" class="msg"></div>
+      </form>
+
+      <div class="hint">
+        Default: <span class="kbd">admin</span> / <span class="kbd">admin123</span> (change later in <code>server/admin.json</code>)
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const msg = document.getElementById('msg');
+    document.getElementById('loginForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      msg.textContent = '...';
+
+      const username = document.getElementById('u').value.trim();
+      const password = document.getElementById('p').value;
+
+      const body = new URLSearchParams({ username, password }).toString();
+      const res = await fetch('/api/admin/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
+        body
+      });
+
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        msg.textContent = data.error || 'Login failed';
+        return;
+      }
+      location.href = '/admin/';
+    });
+  </script>
+</body>
+</html>

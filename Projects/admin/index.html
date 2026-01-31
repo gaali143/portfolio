@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="admin.css"/>
+</head>
+<body class="bg">
+  <div class="topbar">
+    <div class="brand">SAAS :: ADMIN DASHBOARD</div>
+    <div class="top-actions">
+      <input id="globalSearch" class="search" placeholder="Search users/projects/logs..." />
+      <button class="btn-sm" id="runHealth">Run Health</button>
+      <button class="btn-sm" id="runTests">Run Tests</button>
+      <button class="btn-sm danger" id="logoutBtn">Logout</button>
+    </div>
+  </div>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="nav-title">CONTROL</div>
+      <button class="nav active" data-tab="overview">Overview</button>
+      <button class="nav" data-tab="users">Users</button>
+      <button class="nav" data-tab="projects">Projects</button>
+      <button class="nav" data-tab="health">Health</button>
+      <button class="nav" data-tab="tests">Tests</button>
+      <button class="nav" data-tab="logs">Live Logs</button>
+      <div class="sidebar-footer">status: <span id="sessState">OK</span></div>
+    </aside>
+
+    <main class="main">
+      <!-- OVERVIEW -->
+      <section class="tab show" id="tab-overview">
+        <div class="grid">
+          <div class="card kpi">
+            <div class="card-title">PROJECTS</div>
+            <div class="kpi-val" id="kpiProjects">-</div>
+            <div class="kpi-sub" id="kpiProjectsSub">loading...</div>
+          </div>
+          <div class="card kpi">
+            <div class="card-title">USERS</div>
+            <div class="kpi-val" id="kpiUsers">-</div>
+            <div class="kpi-sub" id="kpiUsersSub">loading...</div>
+          </div>
+          <div class="card kpi">
+            <div class="card-title">SERVICES UP</div>
+            <div class="kpi-val" id="kpiUp">-</div>
+            <div class="kpi-sub" id="kpiUpSub">run health</div>
+          </div>
+
+          <div class="card wide">
+            <div class="card-title">MAP / ACTIVITY</div>
+            <div class="map">
+              <div class="pulse p1"></div>
+              <div class="pulse p2"></div>
+              <div class="pulse p3"></div>
+              <div class="mapgrid"></div>
+              <div class="mapnote">Localhost telemetry :: simulated</div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-title">SYSTEM SNAPSHOT</div>
+            <div class="kv">
+              <div>Host</div><div id="sysHost">-</div>
+              <div>Port</div><div id="sysPort">-</div>
+              <div>Uptime</div><div id="sysUptime">-</div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-title">REQUESTS (SIM)</div>
+            <div class="bars" id="simBars"></div>
+          </div>
+
+          <div class="card wide">
+            <div class="card-title">LIVE LOGS (TAIL)</div>
+            <pre class="terminal" id="tailBox">loading...</pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- USERS -->
+      <section class="tab" id="tab-users">
+        <div class="card">
+          <div class="card-title">USERS :: CRUD</div>
+          <div class="row">
+            <input id="u_name" placeholder="Name" />
+            <input id="u_email" placeholder="Email" />
+            <input id="u_pass" placeholder="Password" />
+            <button class="btn-sm" id="btnAddUser">Add</button>
+          </div>
+          <div class="tablewrap">
+            <table class="tbl" id="usersTbl">
+              <thead><tr><th>UserId</th><th>Name</th><th>Email</th><th>Created</th><th>Actions</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section class="tab" id="tab-projects">
+        <div class="card">
+          <div class="card-title">PROJECTS :: INVENTORY</div>
+          <div class="tablewrap">
+            <table class="tbl" id="projectsTbl">
+              <thead><tr><th>Project</th><th>Path</th><th>UI</th><th>Status</th><th>Message</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- HEALTH -->
+      <section class="tab" id="tab-health">
+        <div class="card">
+          <div class="card-title">HEALTH :: STATUS</div>
+          <div class="tablewrap">
+            <table class="tbl" id="healthTbl">
+              <thead><tr><th>Project</th><th>Path</th><th>State</th><th>HTTP</th><th>ms</th><th>Message</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- TESTS -->
+      <section class="tab" id="tab-tests">
+        <div class="card">
+          <div class="card-title">TESTS :: RESULTS</div>
+          <div class="tablewrap">
+            <table class="tbl" id="testsTbl">
+              <thead><tr><th>Project</th><th>Test</th><th>Result</th><th>Message</th><th>Time</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- LOGS -->
+      <section class="tab" id="tab-logs">
+        <div class="card">
+          <div class="card-title">LIVE CONSOLE LOGS</div>
+          <div class="row">
+            <select id="lvlFilter">
+              <option value="">ALL</option>
+              <option value="[INFO]">INFO</option>
+              <option value="[WARN]">WARN</option>
+              <option value="[ERROR]">ERROR</option>
+            </select>
+            <input id="logFind" placeholder="contains..." />
+            <button class="btn-sm" id="btnClearLog">Clear Screen</button>
+          </div>
+          <pre class="terminal big" id="logBox">connecting...</pre>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>
