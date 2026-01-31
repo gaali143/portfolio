@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <div class="portfolio">
+
+    <!-- HOME SECTION -->
+    <section class="home" id="home">
+      <div class="home-wrap">
+        <div class="portfolio-logo">
+          <iframe src="face.html" class="face-iframe" title="Face Avatar"></iframe>
+        </div>
+
+        <div class="portfolio-content">
+          <h1 class="title">Hi, I’m <span class="accent">Narasimha Rao</span></h1>
+          <p class="subtitle"></p>Application Developer • Web Developer</p>
+          <p class="desc">I build clean, responsive UI and interactive web experiences.</p>
+
+          <div class="home-actions">
+            <button class="btn ghost" data-link="#projects">View Projects</button>
+            <button class="btn ghost" data-link="#contact">Contact</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="about" id="about">
+      <div class="about-wrap">
+
+        <!-- LEFT SIDE CONTENT -->
+        <div class="about-content">
+          <h2 class="title">About <span class="accent">Me</span></h2>
+
+          <!-- ROLE FLIP LINE (ONLY ROLE FLIPS) -->
+          <div class="role-line">
+            <div class="role-card" id="roleCard">
+              <div class="role-face role-front">
+                <span class="role-text" id="roleTag">MuleSoft Developer</span>
+              </div>
+              <div class="role-face role-back">
+                <span class="role-text" id="roleTagBack">Full Stack Developer</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ROLE DESCRIPTION -->
+          <p class="desc" id="roleDesc">
+            I build API-led integrations using Anypoint Platform, RAML, and reusable assets.
+          </p>
+
+          <!-- ATTRACTIVE NOTE -->
+          <p class="desc" style="margin-top:12px; font-style: italic; opacity:0.85;">
+            “I build scalable solutions that connect systems and deliver great user experience.”
+          </p>
+
+          <!-- LINKS -->
+          <div class="about-links">
+            <a class="btn ghost" href="#" target="_blank">GitHub</a>
+            <a class="btn ghost" href="#" target="_blank">LinkedIn</a>
+            <a class="btn ghost" href="#" target="_blank">Resume</a>
+          </div>
+        </div>
+
+        <!-- RIGHT SIDE IMAGE/BLOCK -->
+        <div class="about-image">
+          <!-- optional image -->
+          <!-- <img src="about.png" alt="About image"> -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+      <div class="logo">My Portfolio</div>
+
+      <!-- Desktop Tabs -->
+      <ul class="nav-tabs" id="navTabs">
+        <li class="tab" data-link="#home">Home</li>
+        <li class="tab" data-link="#about">About</li>
+        <li class="tab" data-link="#projects">Projects</li>
+        <li class="tab" data-link="#skills">Skills</li>
+        <li class="tab" data-link="#blog">Blog</li>
+        <li class="tab" data-link="#contact">Contact</li>
+
+        <li class="more" id="moreTab">
+          More ▾
+          <ul class="dropdown" id="moreMenu"></ul>
+        </li>
+      </ul>
+
+      <!-- Mobile Hamburger -->
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">
+        ☰
+      </button>
+
+      <!-- Mobile Menu Panel -->
+      <nav class="mobile-menu" id="mobileMenu">
+        <ul id="mobileMenuList"></ul>
+      </nav>
+    </header>
+    <!-- Skills -->
+    <section class="skills" id="skills">
+        <div class="skills-coverflow" tabindex="0">
+
+            <h2 id="skillsTitle">Skills</h2>
+            <p id="skillsDesc">Swipe / click / arrows to explore</p>
+
+            <button class="cf-btn prev" type="button" aria-label="Previous">‹</button>
+            <button class="cf-btn next" type="button" aria-label="Next">›</button>
+
+            <div class="coverflow-container" id="skillsFlow">
+
+            <div class="coverflow-item active">
+                <h3>Fundamentals</h3>
+                <div class="skill-tags">
+                <span>C</span><span>C++</span><span>Java</span><span>Python</span>
+                </div>
+            </div>
+
+            <div class="coverflow-item">
+                <h3>Web Development</h3>
+                <div class="skill-tags">
+                <span>HTML</span><span>CSS</span><span>JavaScript</span>
+                </div>
+            </div>
+
+            <div class="coverflow-item">
+                <h3>Integration & APIs</h3>
+                <div class="skill-tags">
+                <span>MuleSoft</span><span>API-Led</span><span>REST</span><span>SOAP</span><span>RAML</span>
+                </div>
+            </div>
+
+            <div class="coverflow-item">
+                <h3>Backend Development</h3>
+                <div class="skill-tags">
+                <span>Node.js</span><span>Express</span><span>Spring Boot</span><span>Microservices</span>
+                </div>
+            </div>
+
+            <div class="coverflow-item">
+                <h3>Databases</h3>
+                <div class="skill-tags">
+                <span>MySQL</span><span>PostgreSQL</span><span>MongoDB</span><span>DB Design</span>
+                </div>
+            </div>
+
+            <div class="coverflow-item">
+                <h3>UI / UX</h3>
+                <div class="skill-tags">
+                <span>Responsive UI</span><span>Components</span><span>UX</span><span>Accessibility</span>
+                </div>
+            </div>
+
+            <div class="coverflow-item">
+                <h3>DevOps & Cloud</h3>
+                <div class="skill-tags">
+                <span>Git</span><span>GitHub</span><span>CI/CD</span><span>Docker</span><span>Cloud Basics</span>
+                </div>
+            </div>
+
+            <div class="coverflow-item">
+                <h3>Tools & Platforms</h3>
+                <div class="skill-tags">
+                <span>Anypoint</span><span>Postman</span><span>VS Code</span><span>Linux</span>
+                </div>
+            </div>
+
+            </div>
+
+            <div class="dots" id="skillsDots"></div>
+
+            <button class="cf-play" id="skillsPlay" type="button" aria-label="Toggle autoplay">
+            ⏸
+            </button>
+
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="project-container" id="projects">
+      <a class="box" target="_blank" href="projects/login-signup/index.html">Login & SignUp</a>
+      <a class="box" href="projects/timetool/index.html">TimeTool</a>
+      <a class="box" href="projects/crud-crm/index.html">CRUD CRM</a>
+      <a class="box" href="projects/games/index.html">Games</a>
+      <a class="box" href="projects/3d-designs/index.html">3d Designs</a>
+    </section>
+    <section class="blogs" id="blog">
+        <div class="blogs-coverflow" tabindex="0">
+
+            <h2 class="blogs-title">Blogs</h2>
+            <p class="blogs-sub">Short notes that keep me grounded and growing.</p>
+
+            <button class="blog-btn prev" type="button" aria-label="Previous">‹</button>
+            <button class="blog-btn next" type="button" aria-label="Next">›</button>
+
+            <div class="blog-flow" id="blogFlow">
+
+            <div class="blog-card active">
+                <h3>Confidence Is Built, Not Born</h3>
+                <p>Confidence grows when you show up even on uncertain days. Each effort you make quietly strengthens your belief in yourself.</p>
+            </div>
+
+            <div class="blog-card">
+                <h3>Motivation Follows Action</h3>
+                <p>You don’t need to feel motivated to begin. Once you start, motivation naturally follows your movement forward.</p>
+            </div>
+
+            <div class="blog-card">
+                <h3>Learning Is a Personal Journey</h3>
+                <p>Self-learning is about curiosity, not pressure. When you learn at your own pace, growth becomes sustainable and meaningful.</p>
+            </div>
+
+            <div class="blog-card">
+                <h3>Clarity Is Powerful</h3>
+                <p>Clear communication is less about speaking more and more about being understood. Simplicity builds stronger connections.</p>
+            </div>
+
+            <div class="blog-card">
+                <h3>Integrations That Make Sense</h3>
+                <p>Good integrations don’t just connect systems—they simplify processes, reduce complexity, and support business growth.</p>
+            </div>
+
+            <div class="blog-card">
+                <h3>Seeing the Bigger Picture</h3>
+                <p>Understanding frontend + backend together helps you build cleaner solutions and make better system-level decisions.</p>
+            </div>
+
+            <div class="blog-card">
+                <h3>Design With Empathy</h3>
+                <p>Great design feels natural because it respects users. When usability comes first, interfaces speak for themselves.</p>
+            </div>
+
+            <div class="blog-card">
+                <h3>Progress Over Perfection</h3>
+                <p>Growth doesn’t require perfection—only consistency. Small improvements every day create long-term impact.</p>
+            </div>
+
+            </div>
+
+            <div class="blog-dots" id="blogDots"></div>
+
+            <button class="blog-play" id="blogPlay" type="button" aria-label="Toggle autoplay">⏸</button>
+
+        </div>
+    </section>
+    <section class="contact" id="contact">
+        <div class="contact-wrap">
+
+            <div class="contact-head">
+            <h2 class="title">Get In <span class="accent">Touch</span></h2>
+            <p class="subtitle">Have a project in mind? Let’s build something clean and powerful.</p>
+            </div>
+
+            <div class="contact-grid">
+
+            <!-- LEFT SIDE -->
+            <div class="contact-left">
+                <h3 class="contact-title">Let’s Connect</h3>
+                <p class="desc contact-desc">
+                I’m open to opportunities, collaborations, and freelance projects.
+                Feel free to reach out anytime.
+                </p>
+
+                <div class="contact-cards">
+                <div class="contact-card">
+                    <div class="contact-icon">✉</div>
+                    <div class="contact-info">
+                    <h4>Email</h4>
+                    <p>narasimharao.gali1439@gmail.com</p>
+                    </div>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">📞</div>
+                    <div class="contact-info">
+                    <h4>Phone</h4>
+                    <p>+91 7981161781</p>
+                    </div>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">📍</div>
+                    <div class="contact-info">
+                    <h4>Location</h4>
+                    <p>India</p>
+                    </div>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">🕒</div>
+                    <div class="contact-info">
+                    <h4>Availability</h4>
+                    <p>On your Availability</p>
+                    </div>
+                </div>
+                </div>
+
+                <div class="contact-social">
+                <h4 class="contact-social-title">Follow Me</h4>
+                <div class="contact-social-icons">
+                    <a class="social-btn" href="#" target="_blank" aria-label="GitHub">G</a>
+                    <a class="social-btn" href="#" target="_blank" aria-label="LinkedIn">in</a>
+                    <a class="social-btn" href="#" target="_blank" aria-label="Instagram">IG</a>
+                </div>
+                </div>
+            </div>
+
+            <!-- RIGHT SIDE FORM -->
+            <div class="contact-right">
+                <form class="contact-form" id="contactForm">
+                <label>
+                    <span>Your Name</span>
+                    <input type="text" placeholder="Enter your name" required>
+                </label>
+
+                <label>
+                    <span>Email Address</span>
+                    <input type="email" placeholder="Enter your email" required>
+                </label>
+
+                <label>
+                    <span>Subject</span>
+                    <input type="text" placeholder="Enter subject" required>
+                </label>
+
+                <label>
+                    <span>Message</span>
+                    <textarea rows="5" placeholder="Write your message..." required></textarea>
+                </label>
+
+                <button type="submit" class="contact-submit">Send Message</button>
+                </form>
+            </div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="footer-wrap">
+            <p>
+            © <span id="year"></span> Made with <span class="heart">♥</span> by
+            <span class="footer-name">Gali Narasimha Rao</span>
+            </p>
+        </div>
+    </footer>
+
+
+  </div>
+</body>
+</html>
